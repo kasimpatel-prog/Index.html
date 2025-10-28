@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login + Welcome Page</title>
+  <style>
+    body {
+      background-color: pink;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-box, .welcome-box {
+      background-color: #ffeaea;
+      padding: 20px;
+      border: 4px solid #9b6aff;
+      border-radius: 20px;
+      text-align: center;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    input, select, textarea {
+      width: 95%;
+      padding: 5px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #999;
+    }
+
+    button, input[type=submit], input[type=reset] {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover, input[type=submit]:hover {
+      background-color: darkblue;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid brown;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0e6e6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Section -->
+  <div class="login-box" id="loginSection">
+    <h2>Login Page</h2>
+    <form onsubmit="return loginUser()">
+      <label>Enter Your Name:</label><br>
+      <input type="text" id="username" required><br><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <!-- Welcome Section -->
+  <div class="welcome-box" id="welcomeSection" style="display:none;">
+    <h3>WELCOME</h3>
+    <p>I AM KASIM...<br>I AM A HTML BASIC CODER</p>
+    <h2 id="welcomeMessage" style="color:darkgreen;"></h2>
+
+    <form name="a" action="content://com.android.externalstorage.documents/document/primary%3AKasim.html%2FKasim%20border%2Foriginal-fbda151e41b0bfe04274aef91714b4e5.png" method="post">
+      <h3>**** STUDENT REGISTRATION FORM ****</h3>
+      <table>
+        <tr><th>SIN</th><th>DETAILS</th></tr>
+        <tr><td>1</td><td>NAME (First):<input type="text"></td></tr>
+        <tr><td>2</td><td>NAME (Middle): <input type="text"></td></tr>
+        <tr><td>3</td><td>NAME (Last): <input type="text"></td></tr>
+        <tr><td>4</td><td>D.O.B: <input type="date"></td></tr>
+        <tr><td>5</td><td>COLLEGE NAME: <input type="text"></td></tr>
+        <tr><td>6</td><td>EMAIL: <input type="email"></td></tr>
+        <tr><td>7</td><td>STUDENT ID: <input type="text"></td></tr>
+        <tr><td>8</td><td>MOB. NO: <input type="number"></td></tr>
+        <tr><td>9</td><td>STREAM:
+          <select>
+            <option>Science</option>
+            <option>Commerce</option>
+            <option>Arts</option>
+          </select>
+          OPTIONAL: <input type="text">
+        </td></tr>
+        <tr><td>10</td><td>COMMENT: <textarea rows="2"></textarea></td></tr>
+        <tr><td colspan="2" style="text-align:center;">
+          <button type="submit" on click="https://share.google/KDtn4mq1DDfOy1Qug">Submit</button>
+          <button type="reset">Cancel</button>
+        </td></tr>
+      </table>
+    </form>
+  </div>
+
+  <script>
+    function loginUser() {
+      const name = document.getElementById("username").value.trim();
+      if(name === "") {
+        alert("Please enter your name");
+        return false;
+      }
+      document.getElementById("loginSection").style.display = "none";
+      document.getElementById("welcomeSection").style.display = "block";
+      document.getElementById("welcomeMessage").innerText = `Thank you, ${name}, for logging in!`;
+      return false;
+    }
+  </script>
+
+</body>
+</html>
